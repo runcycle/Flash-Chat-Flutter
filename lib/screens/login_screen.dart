@@ -29,9 +29,11 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             SizedBox(
-              height: 48.0,
+              height: 10.0,
             ),
             TextField(
+              keyboardType: TextInputType.emailAddress,
+              textAlign: TextAlign.center,
               onChanged: (value) {
                 //Do something with the user input.
               },
@@ -41,13 +43,15 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 8.0,
             ),
             TextField(
+              textAlign: TextAlign.center,
+              obscureText: true,
               onChanged: (value) {
                 //Do something with the user input.
               },
               decoration: kTextFieldDecoration.copyWith(hintText:'Enter your password'),
             ),
             SizedBox(
-              height: 24.0,
+              height: 5.0,
             ),
             RoundedButton(
               title: 'Log In', color: Colors.lightBlueAccent, onPressed: () {}
