@@ -78,6 +78,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       _firestore.collection('messages').add({
                         'text': messageText,
                         'sender': loggedInUser.email,
+                        'ts': FieldValue.serverTimestamp(),
                         //add server time stamp 
                       });
                     },
@@ -100,7 +101,7 @@ class MessagesStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: _firestore.collection('messages').snapshots(),
+      stream: _firestore.collection('messages').orderBy('ts').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
           return Center(
